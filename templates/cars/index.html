@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Каталог {% endblock %}
+
+{% block content %}
+    {% if user.username != '' %}
+    <a href="/cars/downloadfile" download><button class="btn btn-secondary" style="position: relative; margin-left: 80%;">Скачать файл</button></a><br>
+    {% endif %}
+    <div class="col-sm-6" style="margin-left: auto; margin-right: auto; text-align: center;">
+        {% if cars %}
+        {% for car in cars %}
+        <div class="alert alert-secondary">
+            <h5>Название:</h5><h3> {{car.car_title}}</h3><hr>
+            <h5>Пробег(км): {{car.car_mileage}}</h5><hr>
+            <h5>Стоимость(руб): {{car.car_price}}</h5><br>
+        </div>
+        {% endfor %}
+        
+    {% else %}
+        машин нет
+    {% endif %}
+    </div>
+    
+{% endblock %}

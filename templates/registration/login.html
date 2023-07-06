@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <div class="container" style="text-align: center;">
+    <h1>
+        Вход в систему
+    </h1><hr>
+    <br><br>
+    {% if form.erros%}
+        <p>{{ form.errors.error }}</p>
+    {% endif %}
+    <form action="{% url 'users:login' %}" method="post">
+        {{form}}
+        {% csrf_token %}
+        <br><br><br><button type="submit" class="btn btn-secondary" style="position:absolute; margin-left: -22%;">Подтвердить</button>
+    </form>
+    </div>
+{% endblock %}

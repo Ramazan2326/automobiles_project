@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Редактирование БД {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div>
+        {% if cars.count > 0 %}
+        <h4>Список автомобилей</h4><br>
+        <table>
+            <thead><th>id</th><th>Название</th><th>Год</th><th>Пробег</th><th>Описание</th><th>Стоимость</th><th></th></thead>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car.id }}</td>
+                <td>{{ car.car_title }}</td>
+                <td>{{ car.car_year }}</td>
+                <td>{{ car.car_mileage }}</td>
+                <td>{{ car.car_description }}</td>
+                <td>{{ car.car_price }}</td>
+                <td><a href="delete/{{car.id}}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <br>
+    </div>
+</div>
+    
+
+{% endblock %}

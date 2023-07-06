@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Форма {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-6">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.car_title}}<br>
+            {{form.car_year}}<br>
+            {{form.car_mileage}}<br>
+            {{form.car_description}}<br>
+            {{form.car_price}}<br>
+            <button type="submit" class="btn btn-secondary">Добавить</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>
+    
+
+{% endblock %}

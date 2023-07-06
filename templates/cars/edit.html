@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Редактирование записи {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-6">
+        <form method="POST">
+            {% csrf_token %}
+            <p>
+                <label>Введите название</label><br>
+                <input type="text" name="name" value="{{cars.car_title}}" />
+            </p>
+            <p>
+                <label>Введите пробег</label><br>
+                <input type="text" name="name" value="{{cars.car_mileage}}" />
+            </p>
+            <p>
+                <label>Введите год выпуска</label><br>
+                <input type="text" name="name" value="{{cars.car_year}}" />
+            </p>
+            <p>
+                <label>Введите описание</label><br>
+                <input type="text" name="name" value="{{cars.car_description}}" />
+            </p>
+            <p>
+                <label>Введите стоимость</label><br>
+                <input type="text" name="name" value="{{cars.car_price}}" />
+            </p>
+            <input type="submit" value="Сохранить" >
+        </form>
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>
+
+    
+
+{% endblock %}
